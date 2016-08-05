@@ -5,9 +5,10 @@ python:
   - '3.5'
 
 # command to install dependencies
-install: 'pip install tox-travis'
+install: 'pip install tox-travis python-coveralls'
 
 # command to run tests
 script: tox
 
-after_success: tox -e cov
+after_success: 
+    - coveralls
