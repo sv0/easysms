@@ -1,10 +1,15 @@
 language: python
-python:
-  - "3.4"
-  - "3.5"
-  - "3.5-dev" # 3.5 development branch
-  - "nightly" # currently points to 3.6-dev
+# python:
+#   - "3.4"
+#   - "3.5"
+#   - "3.5-dev" # 3.5 development branch
+#   - "nightly" # currently points to 3.6-dev
+
+env:
+  - TOX_ENV=py34
+  - TOX_ENV=py35
+
 # command to install dependencies
 install: "pip install tox"
 # command to run tests
-script: tox
+script: tox -e $TOX_ENV
