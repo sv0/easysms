@@ -8,4 +8,4 @@ python:
 install: 'pip install tox-travis'
 
 # command to run tests
-script: tox -e $TOX_ENV
+script: tox
