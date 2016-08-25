@@ -1,0 +1,5 @@
+2016-08-25  sv0
+
+	* Update VERSION to 0.0.1
+	* Fix EasySMSClient.send method
+	* Add send() method tests
