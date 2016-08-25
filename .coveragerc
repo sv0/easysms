@@ -1,5 +1,11 @@
 [run]
 source=easysms
+omit =
+    */tests*
 
 [report]
-skip_covered=true
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    raise NotImplementedError
+    def parse_args

@@ -2,7 +2,7 @@
 
 from . client import *  # noqa
 
-__version__ = "0.1"
+__version__ = "0.0.1"
 __project__ = "easysms"
 __author__ = "Slavik Svyrydiuk"
 __email__ = "svyrydiuk@gmail.com"
