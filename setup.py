@@ -34,6 +34,15 @@ setup(
     author_email=_email,
     url="https://github.com/sv0/easysms",
     keywords='easysms sms heroku',
+    classifiers=[
+        'Development Status :: 2 - Pre-Alpha',
+        'Intended Audience :: Developers',
+        'Natural Language :: English',
+        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
+        'Programming Language :: Python :: 3 :: Only',
+        'Topic :: Communications',
+        'Topic :: Software Development :: Libraries :: Python Modules',
+    ],
     packages=find_packages(),
     package_data={'': PACKAGE_DATA, },
 )
