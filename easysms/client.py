@@ -26,7 +26,6 @@ class EasySMSClient(object):
         self.auth_token = parsed_url_dict.get('password')
 
         password_mgr = urllib.request.HTTPPasswordMgrWithDefaultRealm()
-
         password_mgr.add_password(
             realm=None,
             uri=self.hostname,
@@ -44,7 +43,7 @@ class EasySMSClient(object):
 
     @classmethod
     def _parse_easysms_url(cls, easysms_url):
-        """Parse EASYSMS_URL and return dict of uri, username and password
+        """Parse EASYSMS_URL and return dict of uri, username, password and base_url
 
          Args:
             easysms_url: URL to access the Easy SMS service
@@ -55,7 +54,6 @@ class EasySMSClient(object):
                 'username'
                 'password'
                 'base_url'
-
         """
         parse_result = urllib.parse.urlparse(easysms_url)
         return dict(
@@ -74,6 +72,7 @@ class EasySMSClient(object):
         return data
 
     def send(self, to, _from, message):
+        """Send SMS to given phone number"""
         data = self._make_data(to=to, body=message)
         send_message_url = '%s/messages' % self.base_url
         request = urllib.request.Request(
@@ -82,5 +81,4 @@ class EasySMSClient(object):
             headers={'Content-Type': 'application/json'},
         )
         response = urllib.request.urlopen(request)
-        resp_txt = response.readlines()
-        return resp_txt
+        return json.loads(response.read().decode('utf-8'))
