@@ -1,3 +1,9 @@
+2016-09-09  sv0
+
+	* Update VERSION to 0.0.2
+	* Add _request method
+	* Add set_callback_url method to set the callback URL which will be triggered when SMS status changes
+
 2016-08-25  sv0
 
 	* Update VERSION to 0.0.1
