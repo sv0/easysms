@@ -71,14 +71,31 @@ class EasySMSClient(object):
         data = json.dumps(kwargs).encode('utf-8')
         return data
 
-    def send(self, to, _from, message):
-        """Send SMS to given phone number"""
-        data = self._make_data(to=to, body=message)
-        send_message_url = '%s/messages' % self.base_url
+    def _request(self, url, data=None, headers={'Content-Type': 'application/json'}, method='POST'):
+        """Perform request and return result in JSON"""
         request = urllib.request.Request(
-            send_message_url,
+            url,
             data=data,
-            headers={'Content-Type': 'application/json'},
+            headers=headers,
+            method=method,
         )
         response = urllib.request.urlopen(request)
         return json.loads(response.read().decode('utf-8'))
+
+    def set_callback_url(self, url):
+        """Set the callback URL which will be triggered when SMS status changes"""
+        data = self._make_data(sms_status_url=url)
+        return self._request(
+            self.base_url,
+            data=data,
+            method='PUT'
+        )
+
+    def send(self, to, from_, message):
+        """Send SMS to given phone number"""
+        msg_dict = {'to': to, 'from': from_, 'body': message}
+        data = self._make_data(**msg_dict)
+        return self._request(
+            '%s/messages' % self.base_url,
+            data=data,
+        )
