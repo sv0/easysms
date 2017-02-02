@@ -1,15 +1,11 @@
 # -*- coding: utf-8 -*-
 import json
+import ssl
 import urllib.request
 import urllib.parse
 
-
 __author__ = "Slavik Svyrydiuk"
 __email__ = "svyrydiuk@gmail.com"
-
-
-class SMS(object):
-    pass
 
 
 class EasySMSClient(object):
@@ -19,6 +15,8 @@ class EasySMSClient(object):
         """
         https://devcenter.heroku.com/articles/easysms#local-setup
         """
+        self._verify = kwargs.get('verify', True)
+
         parsed_url_dict = self._parse_easysms_url(easysms_url)
         self.base_url = parsed_url_dict.get('base_url')
         self.hostname = parsed_url_dict.get('hostname')
@@ -32,11 +30,16 @@ class EasySMSClient(object):
             user=self.account_id,
             passwd=self.auth_token,
         )
-
+        # create authentication handler
         auth_handler = urllib.request.HTTPBasicAuthHandler(password_mgr)
 
-        # build a new opener that adds authentication
-        opener = urllib.request.build_opener(auth_handler)
+        if not self._verify:
+            # do not verify SSL certificate
+            https_handler = urllib.request.HTTPSHandler(context=ssl._create_unverified_context())
+            opener = urllib.request.build_opener(https_handler, auth_handler)
+        else:
+            # build a new opener that adds authentication
+            opener = urllib.request.build_opener(auth_handler)
 
         # install a new opener
         urllib.request.install_opener(opener)
