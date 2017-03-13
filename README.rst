@@ -1,0 +1,105 @@
+Python client for EasySMS
+###########################
+
+.. _description:
+
+
+**EasySMS** is a python wrapper for Easy SMS API. Currently Easy SMS API available as a [Heroku add-on Easy SMS](https://elements.heroku.com/addons/easysms) only.
+Documentaton available at pypi_ or github_.
+
+
+.. _badges:
+
+.. image:: https://travis-ci.org/sv0/easysms.svg?branch=master
+    :target: https://travis-ci.org/sv0/easysms
+    :alt: Build Status    
+
+.. image:: https://coveralls.io/repos/github/sv0/easysms/badge.svg?branch=master
+    :target: https://coveralls.io/github/sv0/easysms?branch=master
+    :alt: Coverals
+
+.. image:: https://img.shields.io/badge/license-GPL3-blue.svg
+    :target: https://pypi.python.org/pypi/easysms
+    :alt: License
+
+
+.. contents::
+
+.. _requirements:
+
+Requirements
+============
+
+- python >= 3.4
+
+
+.. _installation:
+
+Installation
+============
+
+**EasySMS** client can be installed using pip: ::
+
+    pip install easysms
+
+
+Usage 
+=====
+
+    from easysms.client import EasySMSClient
+
+
+    EASYSMS_URL = os.environ.get('EASYSMS_URL', '')
+
+    client = EasySMSClient(EASYSMS_URL)
+    sms = client.send(
+        '+420735123456789',  # recepient
+        None,  # sender 
+        'Message text'
+    )
+ 
+
+Changes
+=======
+
+Make sure you`ve read the following document if you are upgrading from previous versions:
+
+http://packages.python.org/easysms/changes.html
+
+
+Bug tracker
+===========
+
+If you have any suggestions, bug reports or
+annoyances please report them to the issue tracker
+at https://github.com/sv0/easysms/issues
+
+
+Contributing
+============
+
+Development of easysms happens at github: https://github.com/sv0/easysms
+
+
+Contributors
+============
+
+* None (None)
+
+
+License
+=======
+
+Licensed under a `GNU  general public license v3`_.
+
+
+Copyright
+=========
+
+Copyright (c) 2017 Slavik Svyrydiuk (svyrydiuk@gmail.com)
+
+
+.. _GNU lesser general public license v3: http://www.gnu.org/licenses/gpl.txt
+
+.. _pypi: http://packages.python.org/easysms/
+.. _github: https://github.com/sv0/easysms
