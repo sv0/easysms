@@ -50,14 +50,21 @@ Usage
 
     from easysms.client import EasySMSClient
 
-    EASYSMS_URL = os.environ.get('EASYSMS_URL', '')
+    URL = 'https://6db5:32dc@api.easysmsapp.co'
 
-    client = EasySMSClient(EASYSMS_URL)
+    client = EasySMSClient(URL)
     sms = client.send(
         '+420735123456789',  # recepient
-        None,  # sender 
-        'Message text'
+        None,  # sender. can't be set on the 'Test Plan'
+        'Put your text message here'
     )
+
+::
+
+**URL** can be found on the `Easy SMS Dashboard`_ 
+
+.. image:: https://i.imgur.com/JfIgDQG.png
+    :alt: Easy SMS Dashboard
 
 
 Changes
@@ -97,7 +104,7 @@ Licensed under a `GNU  general public license v3`_.
 Copyright
 =========
 
-Copyright (c) 2017 Slavik Svyrydiuk (svyrydiuk@gmail.com)
+Copyright (c) 2017 `Slavik Svyrydiuk`_
 
 
 .. _GNU general public license v3: http://www.gnu.org/licenses/gpl.txt
@@ -105,3 +112,5 @@ Copyright (c) 2017 Slavik Svyrydiuk (svyrydiuk@gmail.com)
 .. _pypi: http://packages.python.org/easysms/
 .. _github: https://github.com/sv0/easysms
 .. _Heroku Easy SMS add-on: https://elements.heroku.com/addons/easysms
+.. _Easy SMS Dashboard: https://www.easysmsapp.com/dashboard
+.. _Slavik Svyrydiuk: mailto:svyrydiuk@gmail.com?subject=EasySMS
