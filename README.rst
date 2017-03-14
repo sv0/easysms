@@ -4,7 +4,7 @@ Python client for EasySMS
 .. _description:
 
 
-**EasySMS** is a python wrapper for Easy SMS API. Currently Easy SMS API available as a [Heroku add-on Easy SMS](https://elements.heroku.com/addons/easysms) only.
+**EasySMS** is a python wrapper for Easy SMS API. Currently Easy SMS API available as a `Heroku Easy SMS add-on`_.
 Documentaton available at pypi_ or github_.
 
 
@@ -46,8 +46,9 @@ Installation
 Usage 
 =====
 
-    from easysms.client import EasySMSClient
+::
 
+    from easysms.client import EasySMSClient
 
     EASYSMS_URL = os.environ.get('EASYSMS_URL', '')
 
@@ -57,7 +58,7 @@ Usage
         None,  # sender 
         'Message text'
     )
- 
+
 
 Changes
 =======
@@ -99,7 +100,8 @@ Copyright
 Copyright (c) 2017 Slavik Svyrydiuk (svyrydiuk@gmail.com)
 
 
-.. _GNU lesser general public license v3: http://www.gnu.org/licenses/gpl.txt
+.. _GNU general public license v3: http://www.gnu.org/licenses/gpl.txt
 
 .. _pypi: http://packages.python.org/easysms/
 .. _github: https://github.com/sv0/easysms
+.. _Heroku Easy SMS add-on: https://elements.heroku.com/addons/easysms
