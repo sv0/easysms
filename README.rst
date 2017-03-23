@@ -57,13 +57,13 @@ API **URL** can be found on the `Easy SMS Dashboard`_
 
     from easysms.client import EasySMSClient
 
-    URL = 'https://6db5:32dc@api.easysmsapp.co'
+    URL = 'https://6db56db56db5:32dc32dc32dc@api.easysmsapp.co'
 
     client = EasySMSClient(URL)
     sms = client.send(
-        '+420735123456789',  # recepient
-        None,  # sender. can't be set on the 'Test Plan'
-        'Put your text message here'
+        '+420735123456',                # recepient phone number
+        '+38097100500',                 # sender phone number
+        'Hey man! How are you doing?'   # message text
     )
 
 ::
