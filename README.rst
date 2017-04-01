@@ -66,6 +66,11 @@ API **URL** can be found on the `Easy SMS Dashboard`_
         'Hey man! How are you doing?'   # message text
     )
 
+
+Optional arguments
+
+    verify=False - do not verify SSL certificate
+
 ::
 
 
