@@ -1,3 +1,10 @@
+**Easy SMS add-on will be shutting down June 1, 2017**
+
+The Easy SMS team has chosen not to continue development of this add-on and has been unable to support customers using the service. We advise you to migrate to a new SMS messaging service as soon as possible as the service may stop working at any time.
+
+Heroku will remove Easy SMS from all apps on June 1, 2017. We advise you to remove it yourself before that date via the Dashboard or the CLI.
+
+
 Python client for EasySMS
 ###########################
 
